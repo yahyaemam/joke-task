@@ -1,0 +1,11 @@
+<div  class="joke">
+<div class="joke__card">
+  <div class="joke__card__body">
+    <p>{{joke}}</p>
+  <label>Rate: <span *ngIf="rate != undefined">{{rate}}</span></label>
+  <select *ngIf="rate == undefined" (change)="onSelectRate($event)">
+    <option *ngFor="let num of ratingNumber" [value]="num" [selected]="">{{num}}</option>
+</select>
+  </div>
+</div>
+</div>

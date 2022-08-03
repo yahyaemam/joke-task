@@ -1,0 +1,23 @@
+<label for="options">Select To Exclude:</label>
+<div *ngFor="let option of optionsToExclude; let i = index">
+  <label>
+    <input type="checkbox" name="options" value="{{option}}" (change)="updateCheckedOptions(option, $event)" />
+    {{option}}
+  </label>
+</div>
+<button (click)="applyFilters()"> Apply </button>
+<div class="joke-container"> 
+<div class="joke-container__new-joke" @fadeAnimation  *ngIf="jokeChanges | async as joke">
+    <app-joke-rating  [joke]="joke.joke" (rateEvent)="jokeRate = $event">
+    </app-joke-rating>
+    
+    <button (click)="submit(joke)"> Submit </button>
+</div>
+
+
+  <div class="joke-container__fav-jokes" *ngIf="getTopRatedJokeSubject | async as jokes">
+    <h2>Favourit Jokes:</h2>
+    <app-joke-rating *ngFor="let joke of jokes"   [joke]="joke.joke" [rate]="joke.rate||0">
+    </app-joke-rating>
+  </div>
+  </div>

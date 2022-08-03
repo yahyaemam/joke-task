@@ -1,0 +1,12 @@
+.joke-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.joke-container__new-joke{
+    width: 30%;
+}
+.joke-container__fav-jokes{
+    width: 60%;
+}
+
